@@ -10,7 +10,10 @@ const app=express()
 app.use(express.json())
 app.use(cookieParser());
 
-app.use(cors());
+app.use(cors({
+    origin: 'https://studyspotindia.github.io/', // Replace with your frontend URL
+    credentials: true // Allow sending and receiving credentials (cookies, etc.)
+  }));
 
 
 app.get("/" ,async (req,res)=>{
