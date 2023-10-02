@@ -10,10 +10,18 @@ const app=express()
 app.use(express.json())
 app.use(cookieParser());
 
-app.use(cors({
-    origin: 'https://studyspotindia.github.io', // Replace with your frontend URL
-    credentials: true // Allow sending and receiving credentials (cookies, etc.)
-  }));
+const allowedOrigins = [
+    'https://studyspotindia.github.io',
+    'https://studyspotindia.com', // Add additional origins as needed
+    'https://study-spot.vercel.app'
+  ];
+  
+  const corsOptions = {
+    origin: allowedOrigins,
+    credentials: true
+  };
+
+app.use(cors(corsOptions));
 
 
 app.get("/" ,async (req,res)=>{
