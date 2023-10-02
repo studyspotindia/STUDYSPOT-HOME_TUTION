@@ -332,7 +332,7 @@ const DesktopNav = () => {
   const textColorStyle = useStyleConfig('Text', { styleConfig: textColorStyles });
 
   return (
-    <Stack direction={'row'} spacing={9}>
+    <Stack direction={'row'} spacing={{base:4,md:0,lg:9}}>
       {NAV_ITEMS.map((navItem) => (
         <Box key={navItem.label}>
           {navItem.children ? (
