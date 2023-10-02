@@ -1,6 +1,6 @@
 import React from 'react'
 import Home from '../Pages/Home'
-import { Route, Routes,Switch } from 'react-router-dom'
+import { Route, Routes } from 'react-router-dom'
 import StudentSignup from '../Pages/Auth/StudentSignup'
 import TeacherSignup from '../Pages/Auth/TeacherSignup'
 import StudentLogin from '../Pages/Auth/StudentLogin'
@@ -18,7 +18,6 @@ const AllRoutes = () => {
   return (
     <div>
          <Routes>
-          
             <Route path="/" element={<Home />} />
             <Route path="/studentlogin" element={<StudentLogin/>} />
             <Route path="/teacherlogin" element={<TeacherLogin/>} />
