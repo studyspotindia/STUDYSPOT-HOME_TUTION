@@ -13,7 +13,8 @@ app.use(cookieParser());
 const allowedOrigins = [
     'https://studyspotindia.github.io',
     'https://studyspotindia.com', // Add additional origins as needed
-    'https://study-spot.vercel.app'
+    'https://study-spot.vercel.app',
+    "http://localhost:3000"
   ];
   
   const corsOptions = {
