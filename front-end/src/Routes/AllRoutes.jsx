@@ -13,6 +13,7 @@ import StudentSetting from '../Pages/Student/StudentSetting'
 import StudentCourse from '../Pages/Student/StudentCourse'
 import StudentProfile from '../Pages/Student/StudentProfile'
 import ContactUs from '../Components/ContactUs'
+import MainContactUs from '../Components/MainContactUs'
 
 const AllRoutes = () => {
   return (
@@ -24,7 +25,7 @@ const AllRoutes = () => {
             <Route path="/teacherlogin" element={<TeacherLogin/>} />
             <Route path="/studentsignup" element={<StudentSignup />} />
             <Route path="/teachersignup" element={<TeacherSignup />} />
-            <Route path="/contactus" element={<ContactUs />} />
+            <Route path="/contactus" element={<MainContactUs />} />
 
             
             {/* student-pages */}

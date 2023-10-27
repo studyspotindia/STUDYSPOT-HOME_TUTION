@@ -4,6 +4,8 @@ require("dotenv").config()
 const bcrypt = require("bcrypt")
 const { StudentModel } = require("../model/Student.model")
 const mongoose = require('mongoose');
+const {  mailSender } = require("../utils/mailSender.utils")
+const {  contactUsEmail } = require("../template/contactUs")
 
 
 const studentRoute = express.Router()
@@ -247,6 +249,23 @@ studentRoute.delete("/:id", async (req, res) => {
     }
 });
 
+
+
+studentRoute.post('/contactus', async (req, res) => {
+    const {email, firstName, lastName, message, phoneNo} = req.body
+
+
+    try {
+        
+      let contactdata=  await mailSender(email,"Email sended Succesfully",contactUsEmail(email, firstName, lastName, message, phoneNo))
+      let contactme=  await mailSender("kshivang80@gmail.com","Student Data is Collected",contactUsEmail(email, firstName, lastName, message, phoneNo))
+       console.log(contactdata,contactme)
+     res.status(200).json({ message:contactdata  });
+    } catch (error) {
+        console.error('error:', error);
+        res.status(500).json({ message: ' failed' });
+    }
+});
 
 
 

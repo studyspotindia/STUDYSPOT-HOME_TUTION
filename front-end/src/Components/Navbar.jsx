@@ -36,7 +36,7 @@ import {
 } from '@chakra-ui/icons';
 
 import { Link, useLocation } from 'react-router-dom';
-import { Link as ReactScrollLink } from 'react-scroll';
+//import { Link as ReactScrollLink } from 'react-scroll';
 import logo from "../Images/Logo.png"
 import logo1 from "../Images/Logo1.png"
 import logo12 from "../Images/Logo12.png"
@@ -380,16 +380,16 @@ const DesktopNav = () => {
               </PopoverContent>
             </Popover>
           ) :(
-            <ReactScrollLink
+            <Link
               p={2}
-             // to={navItem.to || 'contactus'} // You can provide a fallback link here if `to` is not specified
+              to={navItem.to } // You can provide a fallback link here if `to` is not specified
               fontSize={'sm'}
               fontWeight={500}
               _hover={{
                 textDecoration: 'none',
                 //color: linkHoverColor,
               }}
-              to="contactus"
+              //to="contactus"
               activeClass="active"
               smooth={true} // Add smooth scrolling effect
               offset={-50} // Optional offset for precise scrolling position
@@ -413,7 +413,7 @@ const DesktopNav = () => {
 
               </Button>
 
-            </ReactScrollLink>
+            </Link>
           )
           }
         </Box>
@@ -556,7 +556,7 @@ const NAV_ITEMS = [
   },
   {
     label: 'About',
-    to: '/', // Replace with the appropriate route path
+    to: '/about', // Replace with the appropriate route path
   },
   {
     label: 'Contact us',
