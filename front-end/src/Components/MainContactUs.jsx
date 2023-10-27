@@ -196,7 +196,7 @@ const MainContactUs = () => {
                         size="lg"
                         isRound={true}
                         _hover={{ bg: '#0D74FF' }}
-                        icon={<MdFacebook size="28px" />}
+                        icon={<MdFacebook size="28px"  color="white"/>}
                       />
                       <IconButton
                         aria-label="github"
@@ -204,7 +204,7 @@ const MainContactUs = () => {
                         size="lg"
                         isRound={true}
                         _hover={{ bg: '#0D74FF' }}
-                        icon={<BsGithub size="28px" />}
+                        icon={<BsGithub size="28px"  color="white"/>}
                       />
                       <IconButton
                         aria-label="discord"
@@ -212,7 +212,8 @@ const MainContactUs = () => {
                         size="lg"
                         isRound={true}
                         _hover={{ bg: '#0D74FF' }}
-                        icon={<BsDiscord size="28px" />}
+
+                        icon={<BsDiscord size="28px"  color="white"/>}
                       />
                     </HStack>
                   </Box>
