@@ -71,6 +71,13 @@ const MainContactUs = () => {
         const response = await axios.post("https://filthy-rose-shoe.cyclic.cloud/student/contactus", data);
   
         //console.log(response);
+
+        setData({
+          name: "",
+          email: "",
+          phoneno: "",
+          message: ""
+        });
   
         toast({
           title: 'Form is submitting successfully',
@@ -80,7 +87,8 @@ const MainContactUs = () => {
           isClosable: true,
           position: "top"
         });
-        setData({})
+        
+
       }
     } catch (error) {
       console.error("Error submitting form:", error);

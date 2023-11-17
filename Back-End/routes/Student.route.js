@@ -259,7 +259,7 @@ studentRoute.post('/contactus', async (req, res) => {
         
       let contactdata=  await mailSender(email,"Email sended Succesfully",contactUsEmail(email, name,  message, phoneNo))
       let contactme=  await mailSender("kshivang80@gmail.com","Student Data is Collected",contactUsEmail(email, name,  message, phoneNo))
-       console.log(contactdata,contactme)
+       console.log("==> 2 ",contactdata,contactme)
      res.status(200).json({ message:contactdata  });
     } catch (error) {
         console.error('error:', error);
