@@ -52,6 +52,7 @@ const MainContactUs = () => {
 
 
   const handelSubmit = async (e) => {
+
     e.preventDefault();
   
     try {
@@ -64,6 +65,8 @@ const MainContactUs = () => {
           isClosable: true,
           position: "top"
         });
+
+        
       } else {
         const response = await axios.post("https://filthy-rose-shoe.cyclic.cloud/student/contactus", data);
   
@@ -77,6 +80,7 @@ const MainContactUs = () => {
           isClosable: true,
           position: "top"
         });
+        setData({})
       }
     } catch (error) {
       console.error("Error submitting form:", error);
