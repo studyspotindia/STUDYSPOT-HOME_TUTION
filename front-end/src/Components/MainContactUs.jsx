@@ -75,7 +75,7 @@ const MainContactUs = () => {
         setData({
           name: "",
           email: "",
-          phoneno: "",
+          phoneNo: "",
           message: ""
         });
   
