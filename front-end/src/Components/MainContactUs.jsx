@@ -16,6 +16,7 @@ import {
   InputGroup,
   InputLeftElement,
   Textarea,
+  useToast,
 } from '@chakra-ui/react'
 import {
   MdPhone,
@@ -28,8 +29,72 @@ import {
 import { BsGithub, BsDiscord, BsPerson } from 'react-icons/bs'
 import "./MainContactUs.css"
 import { AtSignIcon } from '@chakra-ui/icons'
+import { useState } from 'react'
+import axios from "axios"
 
 const MainContactUs = () => {
+  const toast = useToast()
+
+  const [data,setData]=useState({
+        name:"",
+        email:"",
+        phoneNo:"",
+        message:""
+  })
+
+  const handleInput=(e)=>{
+    const name=e.target.name;
+    const value=e.target.value;
+
+    setData({...data,[name]:value});
+
+  }
+
+
+  const handelSubmit = async (e) => {
+    e.preventDefault();
+  
+    try {
+      if (!data.name || !data.email || !data.phoneNo || !data.message) {
+        toast({
+          title: 'Error',
+          description: "Please fill in all input fields.",
+          status: 'error',
+          duration: 2000,
+          isClosable: true,
+          position: "top"
+        });
+      } else {
+        const response = await axios.post("https://filthy-rose-shoe.cyclic.cloud/student/contactus", data);
+  
+        //console.log(response);
+  
+        toast({
+          title: 'Form is submitting successfully',
+          description: "Contact Details send successfully",
+          status: 'success',
+          duration: 2000,
+          isClosable: true,
+          position: "top"
+        });
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error);
+  
+      toast({
+        title: 'Error',
+        description: "There was an error submitting the form. Please try again.",
+        status: 'error',
+        duration: 2000,
+        isClosable: true,
+        position: "top"
+      });
+    }
+  };
+  
+
+
+  
 
 
 
@@ -69,6 +134,7 @@ const MainContactUs = () => {
                 <WrapItem  w={{ sm: "100%", md: "47%", lg: "48%" }}>
                   <Box w="100%" bg="white" borderRadius="lg">
                     <Box m={8} color="#0B0E3F">
+                      <form onSubmit={handelSubmit}>
                       <VStack spacing={5}>
                         <FormControl id="name">
                           <FormLabel>Your Name</FormLabel>
@@ -76,7 +142,14 @@ const MainContactUs = () => {
                             <InputLeftElement pointerEvents="none">
                               <BsPerson color="gray.800" />
                             </InputLeftElement>
-                            <Input type="text" size="md" />
+                            <Input 
+                            type="text" 
+                            size="md"  
+                            name="name"
+                            value={data.name}
+                            onChange={handleInput}
+                            isRequired
+                             />
                           </InputGroup>
                         </FormControl>
                         <FormControl id="name">
@@ -85,7 +158,12 @@ const MainContactUs = () => {
                             <InputLeftElement pointerEvents="none">
                               <MdOutlineEmail color="gray.800" />
                             </InputLeftElement>
-                            <Input type="text" size="md" />
+                            <Input type="email" size="md" 
+                               name="email"
+                              value={data.email}
+                              onChange={handleInput}
+                              isRequired
+                            />
                           </InputGroup>
                         </FormControl>
                         <FormControl id="name">
@@ -94,9 +172,13 @@ const MainContactUs = () => {
                             <InputLeftElement pointerEvents="none">
                               <MdOutlinePhone color="gray.800" />
                             </InputLeftElement>
-                            <Input type="text" size="md" 
+                            <Input type="number" size="md" 
                              inputMode="numeric"
                              pattern="[0-9]{10}" // Allows only 10 digits
+                             name="phoneNo"
+                             value={data.phoneNo}
+                             onChange={handleInput}
+                             isRequired
                             />
                           </InputGroup>
                         </FormControl>
@@ -108,14 +190,19 @@ const MainContactUs = () => {
                               borderRadius: 'gray.300',
                             }}
                             placeholder="message"
+                            name="message"
+                            value={data.message}
+                            onChange={handleInput}
+                            isRequired
                           />
                         </FormControl>
                         <FormControl id="name" float="right">
-                          <Button variant="solid" bg="#0D74FF" color="white" _hover={{}}>
+                          <Button type="submit" variant="solid" bg="#0D74FF" color="white" _hover={{}}>
                             Send Message
                           </Button>
                         </FormControl>
                       </VStack>
+                      </form>
                     </Box>
                   </Box>
                 </WrapItem>

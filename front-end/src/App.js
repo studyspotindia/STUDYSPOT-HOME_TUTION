@@ -6,7 +6,7 @@ import { useDispatch } from 'react-redux';
 import { checkAuthStatus } from './Redux/Auth/Auth.action';
 import { useEffect } from 'react';
 import Footer from './Components/Footer';
-import AllRoutes from './Routes/AllRoutes';
+import AllRoutes from './Routes/AllRoutes'
 
 function App() {
  

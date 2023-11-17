@@ -98,7 +98,7 @@
 
 
 
-const contactUsEmail = (email, firstName, lastName, message, phoneNo) => {
+const contactUsEmail = (email, name,  message, phoneNo) => {
 
     return `<!DOCTYPE html>
 <html lang="en">
@@ -267,7 +267,7 @@ const contactUsEmail = (email, firstName, lastName, message, phoneNo) => {
 
 
 
-                <p>Dear ${firstName} ${lastName},</p>
+                <p>Dear ${name} </p>
                 <p>Thank you for contacting us. We have received your message and will respond to you as soon as
                     possible.</p>
 
@@ -275,8 +275,7 @@ const contactUsEmail = (email, firstName, lastName, message, phoneNo) => {
                     <div class="form-group">
                         <label for="name">Name:</label>
                         <div class="box-div">
-                            ${firstName} ${lastName}
-                        </div>
+                            ${name}                         </div>
                     </div>
                     <div class="form-group">
                         <label for="email">Email:</label>

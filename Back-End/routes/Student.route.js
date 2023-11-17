@@ -252,13 +252,13 @@ studentRoute.delete("/:id", async (req, res) => {
 
 
 studentRoute.post('/contactus', async (req, res) => {
-    const {email, firstName, lastName, message, phoneNo} = req.body
+    const {email, name,  message, phoneNo} = req.body
 
 
     try {
         
-      let contactdata=  await mailSender(email,"Email sended Succesfully",contactUsEmail(email, firstName, lastName, message, phoneNo))
-      let contactme=  await mailSender("kshivang80@gmail.com","Student Data is Collected",contactUsEmail(email, firstName, lastName, message, phoneNo))
+      let contactdata=  await mailSender(email,"Email sended Succesfully",contactUsEmail(email, name,  message, phoneNo))
+      let contactme=  await mailSender("kshivang80@gmail.com","Student Data is Collected",contactUsEmail(email, name,  message, phoneNo))
        console.log(contactdata,contactme)
      res.status(200).json({ message:contactdata  });
     } catch (error) {

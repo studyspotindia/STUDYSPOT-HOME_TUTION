@@ -4,6 +4,7 @@ import "./Home.modules.css"
 import Subject from '../Components/Subject'
 import QandA from '../Components/QandA'
 import ContactUs from '../Components/ContactUs'
+import MainContactUs from "../Components/MainContactUs"
 
 const Home = () => {
   return (
@@ -12,6 +13,7 @@ const Home = () => {
       <Subject/>
       <QandA/>
       <ContactUs/>
+      {/* <MainContactUs /> */}
     </div>
   )
 }
