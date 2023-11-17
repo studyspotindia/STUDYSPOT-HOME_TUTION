@@ -5,14 +5,23 @@ require("dotenv").config()
 
 const mailSender = async (email, title, body) => {
     try {
+
+        const username = process.env.MAIL_USER || null;
+        const password = process.env.MAIL_PASS || null;
+
+        if(!username || !password){
+            throw new Error("Please provied username and password")
+        }
+
+
         const transport = nodemailer.createTransport(
             smtp({
                 service: process.env.MAIL_HOST,
                 //secure: true,
-                host: process.env.MAIL_SERVER_PROVIDER,
+                // host: process.env.MAIL_SERVER_PROVIDER,
                 auth: {
-                    user: process.env.MAIL_USER,
-                    pass: process.env.MAIL_PASS,
+                    user: username,
+                    pass: password,
                 },
                 debug:true
             })
