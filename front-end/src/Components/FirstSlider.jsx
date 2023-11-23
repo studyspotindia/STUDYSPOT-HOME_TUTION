@@ -18,9 +18,9 @@ const FirstSlider = () => {
                         <Box
                             key={index}
                         >
-                            <Box className='mainDiv' height={{ base: "300px", sm: "300px", md: "450px", lg: "500px" }}>
+                            <Box className='mainDiv' height={{ base: "300px", sm: "300px", md: "450px", lg: "550px" }}>
 
-                                 <Image borderRadius={"20px"} w="100%" h="100%" src={ele.image}/>
+                                 <Image borderRadius={"10px"} w="100%" h="100%" src={ele.image}/>
                             </Box>
 
                            

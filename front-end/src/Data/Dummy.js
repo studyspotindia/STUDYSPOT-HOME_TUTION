@@ -13,7 +13,9 @@ import chem from "../Images/chem-1.webp"
 import french from "../Images/french.webp"
 import acc from "../Images/acc.webp"
 import geography from "../Images/geography.webp"
-import all from "../Images/all.png"
+import all from "../Images/all.jpg"
+import ai from "../Images/ai.jpg"
+
 import mapimg from "../Images/mapImg.jpg"
 import mathImg from "../Images/mathImg.png"
 import back from "../Images/back.webp"
@@ -34,52 +36,37 @@ import back from "../Images/back.webp"
 
 export const SecondSlide = [
     {
-        image: back,
-        rating: 7.8,
-        title: "Siya",
-        time: "1h 57m",
-        year: 2023,
+        image: all,
+       
 
 
     },
     {
-        image: "https://digitallearning.eletsonline.com/wp-content/uploads/2017/02/school-girls.jpg",
-        rating: 4,
-        title: "Bloody Daddy",
-        time: "2h 1m",
-        year: 2023,
+        image: back,
+      
+
+    },
+    {
+        image:ai,
+       
 
 
     },
     
     {
         image: mathImg,
-        rating: 8.7,
-        title: "Only One Man is ",
-        time: "2h 12m",
-        year: 2023,
+      
 
 
     },
     {
         image: mapimg,
-        rating: 9,
-        title: "The Kerala Story",
-        time: "2h 13m",
-        year: 2023,
-
-
-    },
-    
-    {
-        image: all,
-        rating: 9,
-        title: "The Kerala Story",
-        time: "2h 13m",
-        year: 2023,
+      
 
 
     }
+    
+    
 
 
 ]
