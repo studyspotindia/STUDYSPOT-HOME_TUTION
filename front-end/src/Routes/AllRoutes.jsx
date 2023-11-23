@@ -14,6 +14,7 @@ import StudentCourse from '../Pages/Student/StudentCourse'
 import StudentProfile from '../Pages/Student/StudentProfile'
 import ContactUs from '../Components/ContactUs'
 import MainContactUs from '../Components/MainContactUs'
+import About from '../Components/About'
 
 const AllRoutes = () => {
   return (
@@ -26,6 +27,7 @@ const AllRoutes = () => {
             <Route path="/studentsignup" element={<StudentSignup />} />
             <Route path="/teachersignup" element={<TeacherSignup />} />
             <Route path="/contactus" element={<MainContactUs />} />
+            <Route path="/about" element={<About/>}></Route>
 
             
             {/* student-pages */}
