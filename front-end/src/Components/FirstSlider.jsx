@@ -12,7 +12,7 @@ const FirstSlider = () => {
   return (
     <div>
         
-        <Box className='MainSliderBox' height={{ base: "300px", sm: "300px", md: "450px", lg: "500px" }} mt="130px">
+        <Box className='MainSliderBox' height={{ base: "300px", sm: "300px", md: "450px", lg: "550px" }} mt="130px" >
         <Slider {...settings4}>
                     {SecondSlide.map((ele, index) => (
                         <Box
