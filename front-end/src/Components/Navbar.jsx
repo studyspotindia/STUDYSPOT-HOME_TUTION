@@ -565,9 +565,9 @@ const NAV_ITEMS = [
 ];
 
 
-const Mob_NAV_ITEMS = [
+const Mob_NAV_ITEMS =  [
   {
-    label: 'SEARCH TUTOR',
+    label: 'Search Tutor',
     children: [
       {
         label: 'Explore Tutor',
@@ -582,7 +582,7 @@ const Mob_NAV_ITEMS = [
     ],
   },
   {
-    label: 'STUDY MATERIAL',
+    label: 'Study Material',
     children: [
       {
         label: 'All Subject',
@@ -598,10 +598,10 @@ const Mob_NAV_ITEMS = [
   },
   {
     label: 'About',
-    to: '/aboutus', // Replace with the appropriate route path
+    to: '/about', // Replace with the appropriate route path
   },
   {
-    label: 'ContactUs',
+    label: 'Contact us',
     to: '/contactus', // Replace with the appropriate route path
   },
   {
@@ -609,3 +609,4 @@ const Mob_NAV_ITEMS = [
     to: '/studentsignup', // Replace with the appropriate route path
   },
 ];
+  

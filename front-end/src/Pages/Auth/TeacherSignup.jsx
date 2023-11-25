@@ -74,7 +74,7 @@ const Form1 = ({ formData, setFormData }) => {
           name="name"
           value={formData.name}
           onChange={handleChange}
-          required
+          isRequired
           />
         </FormControl>
 
@@ -88,6 +88,7 @@ const Form1 = ({ formData, setFormData }) => {
           name="profile"
           value={formData.profile}
           onChange={handleChange}
+          isRequired
           />
         </FormControl>
       </Flex>
@@ -101,7 +102,7 @@ const Form1 = ({ formData, setFormData }) => {
         name="email"
         value={formData.email}
         onChange={handleChange}
-        
+        isRequired
         />
         <FormHelperText>We&apos;ll never share your email.</FormHelperText>
       </FormControl>
@@ -118,6 +119,7 @@ const Form1 = ({ formData, setFormData }) => {
             name="password"
             value={formData.password}
             onChange={handleChange}
+            isRequired
           />
           <InputRightElement width="4.5rem">
             <Button h="1.75rem" size="sm" onClick={handleClick}>
@@ -174,7 +176,7 @@ const Form2 = ({ formData, setFormData }) => {
           }}
           as='b'
           >
-          Higher Education  ?
+          Higher Qualification  ?
         </FormLabel>
         <Select
           id="highereducation"
@@ -187,22 +189,12 @@ const Form2 = ({ formData, setFormData }) => {
           size="md"
           w="full"
           rounded="md"
+          isRequired
           >
-          <option>Nursery</option>
-          <option>Class I</option>
-          <option>Class II</option>
-          <option>Class III</option>
-          <option>Class IV</option>
-          <option>Class V</option>
-          <option>Class VI</option>
-          <option>Class VII</option>
-          <option>Class VIII</option>
-          <option>Class IX</option>
-          <option>Class X</option>
-          <option>Class XI</option>
-          <option>Class XII</option>
+           <option>12th</option>
           <option>Graduation</option>
           <option>Post-Graduation</option>
+          <option>B.Ed</option>
           <option>Other</option>
         </Select>
       </FormControl>
@@ -232,6 +224,7 @@ const Form2 = ({ formData, setFormData }) => {
           size="md"
           w="full"
           rounded="md"
+          isRequired
           >
           <option>Nursery</option>
           <option>Class I</option>
@@ -278,6 +271,7 @@ const Form2 = ({ formData, setFormData }) => {
           size="md"
           w="full"
           rounded="md"
+          isRequired
           >
           <option>All Subject</option>
           <option>English</option>
@@ -326,6 +320,7 @@ const Form2 = ({ formData, setFormData }) => {
           size="md"
           w="full"
           rounded="md"
+          isRequired
           >
           <option>Online Class (via Zoom, Google Meet, Skype etc) </option>
           <option>Home Tuition at My Home</option>
@@ -363,7 +358,7 @@ const Form2 = ({ formData, setFormData }) => {
             size="md"
             w="full"
             rounded="md"
-            required
+            isRequired
           />
           {/* <FormErrorMessage>{validatePhone(formData.phone)}</FormErrorMessage> */}
         </FormControl>
@@ -395,6 +390,7 @@ const Form2 = ({ formData, setFormData }) => {
           w="full"
           rounded="md"
           variant='outline'
+          isRequired
         />
       </FormControl>
 
@@ -422,6 +418,7 @@ const Form2 = ({ formData, setFormData }) => {
           // boxShadow= "rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px"
           w="full"
           rounded="md"
+          isRequired
           >
           <option>Basic Rs.4000 - 4640 </option>
           <option>Standard Rs.4640 - 5200 </option>
@@ -442,7 +439,7 @@ const Form2 = ({ formData, setFormData }) => {
           }}
           mt="2%"
           as='b'>
-        What is your Experience in teaching?
+       Teaching Experience (in years)
         </FormLabel>
         <Select
           id="experience"
@@ -455,9 +452,12 @@ const Form2 = ({ formData, setFormData }) => {
           // boxShadow= "rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px"
           w="full"
           rounded="md"
+          isRequired
           >
           <option>0-1 Years</option>
-          <option>2-4 Years</option>
+          <option>1-2 Years</option>
+          <option>2-3 Years</option>
+          <option>3-5 Years</option>
           <option>More than 5 Years</option>
           
          
@@ -490,6 +490,7 @@ const Form2 = ({ formData, setFormData }) => {
           w="full"
           rounded="md"
           variant='outline'
+          isRequired
         />
       </FormControl>
 
@@ -500,75 +501,7 @@ const Form2 = ({ formData, setFormData }) => {
   )
 }
 
-const Form3 = ({ formData, setFormData }) => {
 
-  const handleChange = (event) => {
-    const { name, value } = event.target;
-    console.log(name,value)
-    setFormData({ ...formData, [name]: value });
-  };
-  return (
-    <>
-      <Heading w="100%" textAlign={'center'} fontWeight="normal">
-        Other Information
-      </Heading>
-      <SimpleGrid columns={1} spacing={6}>
-        <FormControl as={GridItem} colSpan={[3, 2]}>
-          <FormLabel
-            fontSize="md"
-            fontWeight="md"
-            color="gray.700"
-            _dark={{
-              color: 'gray.50',
-            }}>
-            Website
-          </FormLabel>
-          <InputGroup size="sm">
-            <InputLeftAddon
-              bg="gray.50"
-              _dark={{
-                bg: 'gray.800',
-              }}
-              color="gray.500"
-              rounded="md">
-              http://
-            </InputLeftAddon>
-            <Input
-              type="tel"
-              placeholder="www.example.com"
-              focusBorderColor="brand.400"
-              rounded="md"
-            />
-          </InputGroup>
-        </FormControl>
-
-        <FormControl id="email" mt={1}>
-          <FormLabel
-            fontSize="md"
-            fontWeight="md"
-            color="gray.700"
-            _dark={{
-              color: 'gray.50',
-            }}>
-            About
-          </FormLabel>
-          <Textarea
-            placeholder="you@example.com"
-            rows={3}
-            shadow="sm"
-            focusBorderColor="brand.400"
-            fontSize={{
-              sm: 'sm',
-            }}
-          />
-          <FormHelperText>
-            Brief description for your profile. URLs are hyperlinked.
-          </FormHelperText>
-        </FormControl>
-      </SimpleGrid>
-    </>
-  )
-}
 
 // {
 //     "email":"kraju800@gmail.com",
