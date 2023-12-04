@@ -3,15 +3,17 @@ import * as types from "./Auth.actionTypes"
 import Cookies from 'js-cookie';
 
 //const token = JSON.parse(localStorage.getItem("authToken")) || false;
+const tokenCookie = Cookies.get('StudentToken');
+const isAuthBollen = !!tokenCookie;
 
 const initialState = {
   student: [],
-  token: false,
+  token: tokenCookie || false,
   isAuth: false,
   isLoading: false,
   isError: false,
   message: null,
-  isAuthenticated: false, // New state to track token presence
+  isAuthenticated: isAuthBollen || false, // New state to track token presence
   
 }
 
@@ -74,7 +76,7 @@ export const authReducer = (state = initialState, action) => {
 
     case types.AUTH_STUDENT_LOGIN_SUCCESS:
       // Retrieve the token from the cookie
-      const tokenCookie = Cookies.get('StudentToken');
+      //const tokenCookie = Cookies.get('StudentToken');
       console.log(tokenCookie,"In reducer")
       return {
         ...state,

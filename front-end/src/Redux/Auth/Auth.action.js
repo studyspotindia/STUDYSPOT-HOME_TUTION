@@ -6,13 +6,14 @@ import jwt_decode from "jwt-decode";
 
 
 // STUDENT Add authSignup action
+
 export  const authStudentSignup = (signupData) => async (dispatch) => {
     dispatch({ type: types.AUTH_STUDENT_SIGNUP_REQUEST });
 
     try {
         const response = await axios.post('https://filthy-rose-shoe.cyclic.cloud/student/signup', signupData);
         const data = response.data;
-        console.log(data, 'hello signup');
+        console.log(data, 'hello signup');  
 
 
         dispatch({
@@ -133,7 +134,7 @@ export const AuthTeacherLogin = (loginData) => async (dispatch) => {
 // Check token presence action
 export const checkTokenPresence = () => (dispatch) => {
     const tokenCookie = Cookies.get('StudentToken');
-   // console.log(tokenCookie, "cjekc");
+    //console.log(tokenCookie, "baap re baap");
     const isAuthenticated = !!tokenCookie; // Convert to boolean
     dispatch({ type: types.AUTH_STUDENT_CHECK_TOKEN, payload: { isAuthenticated } });
 };

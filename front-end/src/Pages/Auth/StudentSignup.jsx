@@ -95,7 +95,7 @@ const Form1 = ({ formData, setFormData }) => {
         </FormLabel>
         <Input 
         id="email" 
-        type="email" 
+        type="email"
         name="email"
         value={formData.email}
         onChange={handleChange}

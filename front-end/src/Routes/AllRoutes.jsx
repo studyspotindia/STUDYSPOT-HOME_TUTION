@@ -31,10 +31,11 @@ const AllRoutes = () => {
 
             
             {/* student-pages */}
-            <Route path="/:userType/studentprofile/:user_id"  element={<StudentProfile/>} />
-            <Route path="/:userType/studentdashboard/:user_id"  element={<StudentDashboard/>} />
-            <Route path="/:userType/studentsetting/:user_id"  element={<StudentSetting />}/>
-            <Route path="/:userType/studentcourse/:user_id" element={<StudentCourse/>} />
+            
+            <Route path="/:userType/studentprofile/:user_id"  element={<PrivateRoute><StudentProfile/></PrivateRoute>} />
+            <Route path="/:userType/studentdashboard/:user_id"  element={<PrivateRoute><StudentDashboard/></PrivateRoute>} />
+            <Route path="/:userType/studentsetting/:user_id"  element={<PrivateRoute><StudentSetting /></PrivateRoute>}/>
+            <Route path="/:userType/studentcourse/:user_id" element={ <PrivateRoute><StudentCourse/></PrivateRoute>} />
 
         </Routes>
     </div>

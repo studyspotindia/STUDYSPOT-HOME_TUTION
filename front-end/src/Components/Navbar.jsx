@@ -37,12 +37,9 @@ import {
 
 import { Link, useLocation } from 'react-router-dom';
 //import { Link as ReactScrollLink } from 'react-scroll';
-import logo from "../Images/Logo.png"
-import logo1 from "../Images/Logo1.png"
-import logo12 from "../Images/Logo12.png"
+
 import studyspot from "../Images/studyspot.jpg"
 import studyspot12 from "../Images/studyspot12.jpg"
-import studyLogo from "../Images/studylogo.svg"
 import { useDispatch, useSelector } from 'react-redux';
 import { authStudentLogout, checkTokenPresence } from '../Redux/Auth/Auth.action';
 import { useEffect, useState } from 'react';
@@ -63,7 +60,7 @@ export default function Navbar() {
 
 
   const auth = useSelector((state) => state.auth)
-  console.log(auth.isAuthenticated, "In navbar")
+ // console.log(auth.isAuthenticated, "In navbar")
   const cookieUserID = Cookies.get('userId');
 
 
@@ -90,7 +87,7 @@ export default function Navbar() {
           setData(studentData);
         }
 
-        console.log(cookieUserID)
+        //console.log(cookieUserID)
       } catch (error) {
         console.error(error);
       }
@@ -105,7 +102,7 @@ export default function Navbar() {
 
 
 
-  console.log(data, "checking data is coming")
+  // console.log(data, "checking data is coming")
 
 
   const handleLogout = () => {

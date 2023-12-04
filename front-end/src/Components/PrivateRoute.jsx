@@ -6,11 +6,12 @@ function PrivateRoute({ children }) {
 
     const auth = useSelector((state) => state.auth)
     console.log(auth.isAuthenticated, "In navbar")
-     //console.log(isAuth)
+     console.log(auth,"Private Route")
+     
   if (!auth.isAuthenticated) {
     return <Navigate to={"/studentlogin"} />;
   }
-  return children;
+  return <div>{children}</div>;
 }
 
 export default PrivateRoute;

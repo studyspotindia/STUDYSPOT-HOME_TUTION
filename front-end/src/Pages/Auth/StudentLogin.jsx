@@ -37,7 +37,7 @@ export default function StudentLogin() {
 
  
   const auth=useSelector((state)=>state.auth)
-  console.log(auth,"In Login")
+  //console.log(auth,"In Login")
 
 
   useEffect(() => {
@@ -95,10 +95,10 @@ export default function StudentLogin() {
     }
 
     dispatch(checkTokenPresence());
-    // setFormData({
-    //   email: "",
-    //   password: ""
-    // });
+    setFormData({
+      email: "",
+      password: ""
+    });
     dispatch({ type: AUTH_STUDENT_RESET_MESSAGE });
 
    
