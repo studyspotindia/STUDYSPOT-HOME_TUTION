@@ -147,7 +147,7 @@ export const getSingleStudent = (userType, user_id) => async (dispatch) => {
 
 
     try {
-        console.log(userType, user_id,"chek in action")
+       // console.log(userType, user_id,"chek in action")
       // Make a GET request to your backend to fetch the student data using the user ID
       const response = await axios.get(`https://filthy-rose-shoe.cyclic.cloud/${userType}/singleuser/${user_id}`);
   

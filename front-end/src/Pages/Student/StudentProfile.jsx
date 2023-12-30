@@ -19,7 +19,7 @@ const StudentProfile = () => {
     // console.log(auth,"In profile")
     //console.log(data)
     //console.log(userType, user_id)
-    console.log(auth.isLoading)
+    //console.log(auth.isLoading)
 
 
 

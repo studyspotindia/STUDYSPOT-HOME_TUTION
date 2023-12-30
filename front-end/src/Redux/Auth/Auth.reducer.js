@@ -77,7 +77,7 @@ export const authReducer = (state = initialState, action) => {
     case types.AUTH_STUDENT_LOGIN_SUCCESS:
       // Retrieve the token from the cookie
       //const tokenCookie = Cookies.get('StudentToken');
-      console.log(tokenCookie,"In reducer")
+      //console.log(tokenCookie,"In reducer")
       return {
         ...state,
         isAuth: true,

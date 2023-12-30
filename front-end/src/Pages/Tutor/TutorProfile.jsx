@@ -16,10 +16,10 @@ const TutorProfile = () => {
     const { userType, user_id } = useParams();
 
     const auth = useSelector((state) => state.auth)
-    console.log(auth,"In profile")
+    //console.log(auth,"In profile")
     //console.log(data)
     //console.log(userType, user_id)
-    console.log(auth.isLoading)
+    //console.log(auth.isLoading)
 
 
 
