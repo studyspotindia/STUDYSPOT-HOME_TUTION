@@ -96,10 +96,10 @@ studentRoute.get("/singleuser/:id", async (req, res) => {
 // Signup 
 
 studentRoute.post("/signup", async (req, res) => {
-    const { email, password, name,gender, profile, phone, classname, location, subject, tutiontype, fees, typeofuser } = req.body
+    const { email, password, name,gender, profile, phone, classname, location, subject, tutiontype, fees,about , typeofuser } = req.body
 
         // Check if any required field is missing
-        const requiredFields = ['email', 'password', 'name', 'gender', 'profile', 'phone', 'classname', 'location', 'subject', 'tutiontype', 'fees', ];
+        const requiredFields = ['email', 'password', 'name', 'gender', 'profile', 'phone', 'classname', 'location', 'subject', 'tutiontype', 'fees',"about" ];
         const missingFields = requiredFields.filter(field => !req.body[field]);
     
         if (missingFields.length > 0) {
@@ -122,7 +122,7 @@ studentRoute.post("/signup", async (req, res) => {
                     console.log(err)
                     res.status(400).send({ message: "Error While Register " })
                 } else {
-                    const user = new StudentModel({ email, password: newsecure_password, name,gender, profile, phone, classname, location, subject, tutiontype, fees, typeofuser })
+                    const user = new StudentModel({ email, password: newsecure_password, name,gender, profile, phone, classname, location, subject, tutiontype, fees,about, typeofuser })
                     await user.save()
                     res.status(201).send({ message: "You are registered" })
                 }

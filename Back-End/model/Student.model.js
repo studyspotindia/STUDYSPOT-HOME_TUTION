@@ -12,6 +12,8 @@ const studentSchema=mongoose.Schema({
     subject:{type:String,required:true},
     tutiontype:{type:String,required:true},
     fees:{type:String,required:true},
+    about:{type:String,required:true},
+
     typeofuser: { type: String, default: "student" },
 })
 
