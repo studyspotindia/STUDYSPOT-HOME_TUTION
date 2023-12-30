@@ -18,17 +18,24 @@ import {
 } from '@chakra-ui/react'
 import { useEffect, useState } from 'react'
 import { useDispatch ,useSelector} from 'react-redux'
-import { Link, useNavigate} from 'react-router-dom'
+import { Link, useLocation, useNavigate, useParams} from 'react-router-dom'
 import {   AuthStudentLogin, AuthTeacherLogin, checkTokenPresence } from '../../Redux/Auth/Auth.action'
 import axios from "axios"
 import { AUTH_STUDENT_RESET_MESSAGE } from '../../Redux/Auth/Auth.actionTypes'
+import Cookies from 'js-cookie'
 
 export default function TeacherLogin() {
+  const location=useLocation()
+  console.log(location,"teacherLogin")
+  // const userType = useParams();
+  // console.log(userType,"Teacher")
   const dispatch=useDispatch()
   const navigate=useNavigate()
   const toast = useToast()
   //const [data,setData]=useState([])
+  
   const [isLoading, setIsLoading] = useState(false);
+  const cookieUserID = Cookies.get('userId');
   
   const [formData,setFormData]=useState({
       email:"",
@@ -37,7 +44,6 @@ export default function TeacherLogin() {
 
  
   const auth=useSelector((state)=>state.auth)
-  console.log(auth,"In TeacherLogin")
 
 
   useEffect(() => {
@@ -50,7 +56,7 @@ export default function TeacherLogin() {
         isClosable: true,
       })
      
-       // navigate("/");
+        navigate(`/tutor/tutorprofile/${cookieUserID}`);
       
      
 
@@ -124,6 +130,7 @@ export default function TeacherLogin() {
       try {
         await dispatch(AuthTeacherLogin(formData));
         setIsLoading(false); // Hide the spinner after login attempt
+        
       } catch (error) {
         setIsLoading(false); // Hide the spinner if there's an error
       }

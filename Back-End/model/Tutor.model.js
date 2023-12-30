@@ -5,6 +5,7 @@ const tutorSchema=mongoose.Schema({
     email:{type:String,required:true},
     password:{type:String,required:true},
     name:{type:String,required:true},
+    gender:{type:String,required:true},
     profile:{type:String,required:true},
     phone:{type:Number,required:true},
     highereducation:{type:String,required:true},

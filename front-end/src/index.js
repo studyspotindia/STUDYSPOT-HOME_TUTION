@@ -9,7 +9,7 @@ import { Provider } from "react-redux";
 import { store } from './Redux/Store';
 
 
-console.log(store.getState(),'hhhh')
+//console.log(store.getState(),'hhhh')
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

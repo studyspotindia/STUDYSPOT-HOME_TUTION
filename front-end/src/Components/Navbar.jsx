@@ -35,13 +35,13 @@ import {
   SunIcon
 } from '@chakra-ui/icons';
 
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useParams } from 'react-router-dom';
 //import { Link as ReactScrollLink } from 'react-scroll';
 
 import studyspot from "../Images/studyspot.jpg"
 import studyspot12 from "../Images/studyspot12.jpg"
 import { useDispatch, useSelector } from 'react-redux';
-import { authStudentLogout, checkTokenPresence } from '../Redux/Auth/Auth.action';
+import { authStudentLogout, checkTokenPresence, getSingleStudent } from '../Redux/Auth/Auth.action';
 import { useEffect, useState } from 'react';
 import Cookies from 'js-cookie';
 import axios from "axios"
@@ -56,53 +56,62 @@ export default function Navbar() {
   const { isOpen, onToggle } = useDisclosure();
   const dispatch = useDispatch();
   const location = useLocation();
+  
+
+
 
 
 
   const auth = useSelector((state) => state.auth)
- // console.log(auth.isAuthenticated, "In navbar")
-  const cookieUserID = Cookies.get('userId');
+  //console.log(auth ,"In navbar")
+
+  const user_id = Cookies.get('userId');
 
 
   useEffect(() => {
 
-
-
-    dispatch(checkTokenPresence());
-
-
-    const getSingleStudent = async () => {
-      try {
-        const cookieUserID = Cookies.get('userId');
-        //let userType = 'student'; // Default to student
-
-        if (location.pathname === '/teacherlogin') {
-          setUserType('tutor');
-        }
-
-        // Wait for a short period (e.g., 500 milliseconds) before making the fetch request
-        if (cookieUserID) {
-          const response = await axios.get(`https://filthy-rose-shoe.cyclic.cloud/${userType}/${cookieUserID}`);
-          const studentData = response.data;
-          setData(studentData);
-        }
-
-        //console.log(cookieUserID)
-      } catch (error) {
-        console.error(error);
-      }
+ dispatch(checkTokenPresence());
+   
+    if (location.pathname === '/teacherlogin') {
+      setUserType('tutor');
     }
-    getSingleStudent()
+    const user_id = Cookies.get('userId');
+
+    if(user_id){
+      dispatch(getSingleStudent(userType,user_id))
+      //console.log("kusum")
+    }
+
+
+    // const getSingleStudent = async () => {
+
+    //   try {
+    //     const user_id = Cookies.get('userId');
+    //     //let userType = 'student'; // Default to student
+
+       
+
+    //     // Wait for a short period (e.g., 500 milliseconds) before making the fetch request
+    //     if (user_id) {
+    //       const response = await axios.get(`http://localhost:8000/${userType}/singleuser/${user_id}`);
+    //       const studentData = response.data;
+    //       setData(studentData);
+    //     }
+
+    //     //console.log(user_id)
+    //   } catch (error) {
+    //     console.error(error);
+    //     console.log(error)
+    //   }
+    // }
+    // getSingleStudent()
     // window.location.reload(true);
 
 
-  }, [dispatch, cookieUserID, location.pathname]);
+  }, [dispatch, user_id, location.pathname,userType]);
 
 
 
-
-
-  // console.log(data, "checking data is coming")
 
 
   const handleLogout = () => {
@@ -249,7 +258,7 @@ export default function Navbar() {
 
 
 
-            <Menu key={data._id} >
+            <Menu key={auth.student._id} >
               <MenuButton
                 as={Button}
                 rounded={'full'}
@@ -258,24 +267,24 @@ export default function Navbar() {
                 minW={0}>
                 <Avatar
                   size={'lg'}
-                  src={data.profile} />
+                  src={auth.student.profile} />
               </MenuButton>
               <MenuList alignItems={'center'}>
                 <br />
                 <Center>
                   <Avatar
                     size={'2xl'}
-                    src={data.profile}
+                    src={auth.student.profile}
                   />
                 </Center>
                 <br />
                 <Center>
-                  <p>{data.name}</p>
+                  <p>{auth.student.name}</p>
                 </Center>
                 <br />
                 <MenuDivider />
                 <MenuItem>Your Servers</MenuItem>
-                <Link to={`/${userType}/studentprofile/${cookieUserID}`}>
+                <Link to={`/${userType}/studentprofile/${user_id}`}>
                   <MenuItem>Account Settings</MenuItem>
                 </Link>
 

@@ -14,7 +14,7 @@ import { Box } from '@chakra-ui/react';
 function App() {
   const [isSmall, setIsSmall] = useState(false);
   const location=useLocation()
-  console.log(location)
+  
   const cookieUserID = Cookies.get('userId');
 
   // if(location.pathname==`/student/studentprofile/${cookieUserID}`){
@@ -39,7 +39,15 @@ function App() {
           location.pathname === `/student/studentprofile/${cookieUserID}` ||
           location.pathname === `/student/studentdashboard/${cookieUserID}` ||
           location.pathname === `/student/studentsetting/${cookieUserID}` ||
-          location.pathname === `/student/studentcourse/${cookieUserID}` ? "" :(<Box>  <Footer/></Box>)
+          location.pathname === `/student/studentcourse/${cookieUserID}` ||
+          location.pathname === `/tutor/tutorprofile/${cookieUserID}` ||
+          location.pathname === `/tutor/tutordashboard/${cookieUserID}` ||
+          location.pathname === `/tutor/tutorsetting/${cookieUserID}` ||
+          location.pathname === `/tutor/studentcourse/${cookieUserID}`
+          
+          
+          
+          ? "" :(<Box>  <Footer/></Box>)
 
          }
        

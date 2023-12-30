@@ -7,7 +7,7 @@ import { getSingleStudent } from '../../Redux/Auth/Auth.action';
 
 
 
-const StudentProfile = () => {
+const TutorProfile = () => {
     // const location = useLocation();
     //  console.log(location)
     const dispatch = useDispatch()
@@ -16,7 +16,7 @@ const StudentProfile = () => {
     const { userType, user_id } = useParams();
 
     const auth = useSelector((state) => state.auth)
-    // console.log(auth,"In profile")
+    console.log(auth,"In profile")
     //console.log(data)
     //console.log(userType, user_id)
     console.log(auth.isLoading)
@@ -74,7 +74,7 @@ const StudentProfile = () => {
                         </Box>
 
                         {auth.isLoading===true ?   <Skeleton height='50px' mt={{ base: "5px", md: "10px", lg: "20px" }}/> 
-                            : <Text noOfLines={4} mt={{ base: "5px", md: "10px", lg: "20px" }} ml={{ base: "5px", md: "10px", lg: "40px" }} fontFamily={"sans-serif"} fontSize={{ base: "12px", md: "14px", lg: "16px" }}>Hello, My Name Is Saikat And I Am A DEV. I Have 3 Years Of Experience In Backend Developement And Specialize In Authentication And Authorization. I Am Passionate About Cloud And Have Worked On Studynotion. Please Feel Free To Contact Me For Any Inquiries Or Collaborations!</Text>
+                            : <Text noOfLines={4} mt={{ base: "5px", md: "10px", lg: "20px" }} ml={{ base: "5px", md: "10px", lg: "40px" }} fontFamily={"sans-serif"} fontSize={{ base: "12px", md: "14px", lg: "16px" }}>{auth.student.about}</Text>
 
                             }
 
@@ -130,7 +130,7 @@ const StudentProfile = () => {
 
                                 </Box>
                                 <Box h='80px' >
-                                    <Text mt='4px' fontSize={{ base: "18px", md: "17px", lg: "18px" }} fontFamily={"inherit"} fontWeight={"bold"}>Subject</Text>
+                                    <Text mt='4px' fontSize={{ base: "18px", md: "17px", lg: "18px" }} fontFamily={"inherit"} fontWeight={"bold"}>Qualification</Text>
 
                                     {auth.isLoading===true ?   <Skeleton height='30px'  w={{ base: "80%", md: "80%", lg: "50%" }}  /> 
                             :                                    <Text mt="5px" fontSize={{ base: "15px", md: "15px", lg: "16px" }} fontFamily={"inherit"} >{userType === "student" ? auth.student.subject : auth.student.highereducation}</Text>
@@ -140,7 +140,7 @@ const StudentProfile = () => {
 
                                 </Box>
                                 <Box h='80px' >
-                                    <Text mt='4px' fontSize={{ base: "18px", md: "17px", lg: "18px" }} fontFamily={"inherit"} fontWeight={"bold"}>Class</Text>
+                                    <Text mt='4px' fontSize={{ base: "18px", md: "17px", lg: "18px" }} fontFamily={"inherit"} fontWeight={"bold"}>Experience</Text>
 
                                     {auth.isLoading===true ?   <Skeleton height='30px'  w={{ base: "80%", md: "80%", lg: "50%" }} /> 
                             :    <Text mt="5px" fontSize={{ base: "15px", md: "15px", lg: "16px" }} fontFamily={"inherit"} >{userType === "student" ? auth.student.classname : auth.student.experience}</Text>
@@ -177,4 +177,4 @@ const StudentProfile = () => {
     )
 }
 
-export default StudentProfile
+export default TutorProfile

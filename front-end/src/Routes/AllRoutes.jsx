@@ -15,6 +15,10 @@ import StudentProfile from '../Pages/Student/StudentProfile'
 import ContactUs from '../Components/ContactUs'
 import MainContactUs from '../Components/MainContactUs'
 import About from '../Components/About'
+import TutorProfile from '../Pages/Tutor/TutorProfile'
+import TutorDashboard from '../Pages/Tutor/TutorDashboard'
+import TutorSetting from '../Pages/Tutor/TutorSetting'
+import TutorCourse from '../Pages/Tutor/TutorCourse'
 
 const AllRoutes = () => {
   return (
@@ -36,6 +40,18 @@ const AllRoutes = () => {
             <Route path="/:userType/studentdashboard/:user_id"  element={<PrivateRoute><StudentDashboard/></PrivateRoute>} />
             <Route path="/:userType/studentsetting/:user_id"  element={<PrivateRoute><StudentSetting /></PrivateRoute>}/>
             <Route path="/:userType/studentcourse/:user_id" element={ <PrivateRoute><StudentCourse/></PrivateRoute>} />
+
+
+            {/* Tutor-pages */}
+
+
+            <Route path="/:userType/tutorprofile/:user_id"  element={<PrivateRoute><TutorProfile/></PrivateRoute>} />
+            <Route path="/:userType/tutordashboard/:user_id"  element={<PrivateRoute><TutorDashboard/></PrivateRoute>} />
+            <Route path="/:userType/tutorsetting/:user_id"  element={<PrivateRoute><TutorSetting /></PrivateRoute>}/>
+            <Route path="/:userType/tutorcourse/:user_id" element={ <PrivateRoute><TutorCourse/></PrivateRoute>} />
+
+
+
 
         </Routes>
     </div>

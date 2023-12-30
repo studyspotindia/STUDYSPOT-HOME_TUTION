@@ -5,8 +5,8 @@ import { Navigate } from "react-router-dom";
 function PrivateRoute({ children }) {
 
     const auth = useSelector((state) => state.auth)
-    console.log(auth.isAuthenticated, "In navbar")
-     console.log(auth,"Private Route")
+    // console.log(auth.isAuthenticated, "In navbar")
+    //  console.log(auth,"Private Route")
      
   if (!auth.isAuthenticated) {
     return <Navigate to={"/studentlogin"} />;

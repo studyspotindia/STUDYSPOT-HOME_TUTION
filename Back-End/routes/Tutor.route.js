@@ -64,7 +64,7 @@ tutorRoute.get("/", async (req, res) => {
 // });
 
 
-tutorRoute.get("/:id", async (req, res) => {
+tutorRoute.get("/singleuser/:id", async (req, res) => {
     const ID = req.params.id;
 
     // Validate the ID
@@ -92,7 +92,18 @@ tutorRoute.get("/:id", async (req, res) => {
 // Signup 
 
 tutorRoute.post("/signup", async (req, res) => {
-    const { email, password, name, profile, phone, highereducation, location, subjecttaught,classtaught,experience, tutiontype, fees, typeofuser,about } = req.body
+    const { email, password, name,gender, profile, phone, highereducation, location, subjecttaught,classtaught,experience, tutiontype, fees, typeofuser,about } = req.body
+   
+            // Check if any required field is missing
+            const requiredFields = ["email", "password", "name","gender", "profile", "phone", "highereducation", "location", "subjecttaught","classtaught","experience", "tutiontype", "fees", "typeofuser","about"  ];
+            const missingFields = requiredFields.filter(field => !req.body[field]);
+        
+            if (missingFields.length > 0) {
+                return res.status(400).json({ message: `Please fill all fields. Missing fields: ${missingFields.join(', ')}` });
+            }
+   
+   
+   
     try {
 
         const existingUser = await TutorModel.findOne({ email }); // Check if user with the same email exists
@@ -110,7 +121,7 @@ tutorRoute.post("/signup", async (req, res) => {
                 res.status(400).send({ message: "Error While Register " })
 
             } else {
-                const tutor = new TutorModel({ email, password: newsecure_password, name, profile, phone, highereducation, location, subjecttaught,classtaught,experience, tutiontype, fees, typeofuser,about })
+                const tutor = new TutorModel({ email, password: newsecure_password, name,gender, profile, phone, highereducation, location, subjecttaught,classtaught,experience, tutiontype, fees, typeofuser,about })
                 await tutor.save()
                 res.status(201).send({ message: "You are registered" })
             }

@@ -157,8 +157,13 @@ export const authReducer = (state = initialState, action) => {
           ...state,
           message: null,
         };
+        
 
-    case types.GET_SINGLE_STUDENT:
+    case types.GET_SINGLE_STUDENT_REQUEST:
+          return { ...state, isLoading: true, isError: false };
+    
+
+    case types.GET_SINGLE_STUDENT_SUCCESS:
 
       return {
 
@@ -169,6 +174,15 @@ export const authReducer = (state = initialState, action) => {
         isError: false
 
       }
+
+      case types.GET_SINGLE_STUDENT_ERROR:
+        return {
+          ...state,
+         
+          message: payload.message,
+          isLoading: false,
+          isError: true,
+        }
 
     default:
       return state;

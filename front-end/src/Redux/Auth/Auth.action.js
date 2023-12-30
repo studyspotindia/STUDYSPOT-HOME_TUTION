@@ -141,29 +141,29 @@ export const checkTokenPresence = () => (dispatch) => {
 
 
 
-// export const getSingleStudent = () => async (dispatch) => {
-//     try {
-//       // Decode the token to get the user ID
-//       const cookieUserID= Cookies.get('userId');
-     
-     
-//       console.log(cookieUserID,"fetch")
-//       // Make a GET request to your backend to fetch the student data using the user ID
-//       const response = await axios.get(`https://filthy-rose-shoe.cyclic.cloud/student/${cookieUserID}`);
+export const getSingleStudent = (userType, user_id) => async (dispatch) => {
+
+    dispatch({ type: types.GET_SINGLE_STUDENT_REQUEST });
+
+
+    try {
+        console.log(userType, user_id,"chek in action")
+      // Make a GET request to your backend to fetch the student data using the user ID
+      const response = await axios.get(`https://filthy-rose-shoe.cyclic.cloud/${userType}/singleuser/${user_id}`);
   
-//       const studentData = response.data; // Assuming the API returns student data
+      const studentData = response.data; // Assuming the API returns student data
+     // console.log(studentData)
 
-//       dispatch({ type: types.GET_SINGLE_STUDENT, payload: studentData });
-//     } catch (error) {
-//       // Handle any errors here
-//       console.error(error);
-//       console.log("hello")
-//     }
-//   };
+      dispatch({ type: types.GET_SINGLE_STUDENT_SUCCESS, payload: studentData });
 
-const newcode=()=>{
-    let bhai="new bro"
-}
+    } catch (error) {
+      // Handle any errors here
+      const errorMessage = error.response.data.message;
+        dispatch({ type: types.GET_SINGLE_STUDENT_ERROR, payload: { message: errorMessage } });
+    }
+  };
+
+
 
 
 

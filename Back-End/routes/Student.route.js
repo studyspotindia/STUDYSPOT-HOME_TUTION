@@ -63,7 +63,7 @@ studentRoute.get("/", async (req, res) => {
 //     }
 // });
 
-studentRoute.get("/:id", async (req, res) => {
+studentRoute.get("/singleuser/:id", async (req, res) => {
     const ID = req.params.id;
 
     // Validate the ID
@@ -96,8 +96,18 @@ studentRoute.get("/:id", async (req, res) => {
 // Signup 
 
 studentRoute.post("/signup", async (req, res) => {
-    const { email, password, name, profile, phone, classname, location, subject, tutiontype, fees, typeofuser } = req.body
+    const { email, password, name,gender, profile, phone, classname, location, subject, tutiontype, fees, typeofuser } = req.body
+
+        // Check if any required field is missing
+        const requiredFields = ['email', 'password', 'name', 'gender', 'profile', 'phone', 'classname', 'location', 'subject', 'tutiontype', 'fees', ];
+        const missingFields = requiredFields.filter(field => !req.body[field]);
+    
+        if (missingFields.length > 0) {
+            return res.status(400).json({ message: `Please fill all fields. Missing fields: ${missingFields.join(', ')}` });
+        }
+
     try {
+        
         const existingUser = await StudentModel.findOne({ email }); // Check if user with the same email exists
         if (existingUser) {
             // User with the same email already exists
@@ -112,7 +122,7 @@ studentRoute.post("/signup", async (req, res) => {
                     console.log(err)
                     res.status(400).send({ message: "Error While Register " })
                 } else {
-                    const user = new StudentModel({ email, password: newsecure_password, name, profile, phone, classname, location, subject, tutiontype, fees, typeofuser })
+                    const user = new StudentModel({ email, password: newsecure_password, name,gender, profile, phone, classname, location, subject, tutiontype, fees, typeofuser })
                     await user.save()
                     res.status(201).send({ message: "You are registered" })
                 }
@@ -219,7 +229,7 @@ studentRoute.post('/logout', async (req, res) => {
 
 //PUT and Patch Request
 
-studentRoute.patch("/:id", async (req, res) => {
+studentRoute.patch("/update/:id", async (req, res) => {
     const ID = req.params.id;
     const payload = req.body;
 
@@ -235,7 +245,7 @@ studentRoute.patch("/:id", async (req, res) => {
 
 // DELETE REQUEST
 
-studentRoute.delete("/:id", async (req, res) => {
+studentRoute.delete("/delete/:id", async (req, res) => {
     const ID = req.params.id;
 
     try {

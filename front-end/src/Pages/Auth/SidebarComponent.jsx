@@ -22,7 +22,7 @@ const SidebarComponent = ({ isSmall, setIsSmall, user_id, userType }) => {
     const { isOpen, onToggle } = useDisclosure();
     //const [isSmall, setIsSmall] = useState(false);
     const location = useLocation();
-    console.log(location.pathname, "locationcheck")
+    // console.log(location.pathname, "locationcheck")
 
     const toggleSidebar = () => {
         setIsSmall(!isSmall);

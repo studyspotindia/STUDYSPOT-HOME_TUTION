@@ -22,6 +22,7 @@ import { Link, useNavigate} from 'react-router-dom'
 import { AuthStudentLogin, checkTokenPresence,  } from '../../Redux/Auth/Auth.action'
 import axios from "axios"
 import { AUTH_STUDENT_RESET_MESSAGE } from '../../Redux/Auth/Auth.actionTypes'
+import Cookies from 'js-cookie'
 
 export default function StudentLogin() {
   const dispatch=useDispatch()
@@ -29,6 +30,8 @@ export default function StudentLogin() {
   const toast = useToast()
   //const [data,setData]=useState([])
   const [isLoading, setIsLoading] = useState(false);
+  const cookieUserID = Cookies.get('userId');
+
   
   const [formData,setFormData]=useState({
       email:"",
@@ -50,10 +53,8 @@ export default function StudentLogin() {
         isClosable: true,
       })
 
-      // dispatch(getSingleStudent())
-      // console.log("end")
-     
-       // navigate("/");
+      navigate(`/student/studentprofile/${cookieUserID}`);
+
       
      
 
