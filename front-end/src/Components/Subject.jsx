@@ -7,7 +7,10 @@ import bio from "../Images/bio.webp"
 import { SubjectData, TeacherData } from '../Data/Dummy'
 import { settings2 } from '../Data/ResponsiveCard'
 import Slider from "react-slick";
-import { FaBalanceScaleRight } from 'react-icons/fa';
+import { FaBalanceScaleRight ,FaUsers,FaRegThumbsUp} from 'react-icons/fa';
+import { GiNotebook } from "react-icons/gi";
+import { AiOutlineUsergroupAdd } from "react-icons/ai";
+
 // import "slick-carousel/slick/slick.css";
 // import "slick-carousel/slick/slick-theme.css";
 
@@ -123,21 +126,25 @@ const Subject = () => {
                     <SimpleGrid columns={{ base: 1, sm: 1, md: 1, lg: 3 }} spacing={0}>
                         <Box data-aos="zoom-in-down" borderRight={{ base: 'none', md: 'none', lg: '1px solid gray' }} borderBottom={{ base: '1px solid gray', md: '1px solid gray', lg: "none" }} h="300px" >
                             <Box className='cardTwo' border="1px solid blue" h="120px" w="120px" borderRadius={"5px"} m="auto" mt="30px" padding="10px">
-                                <Image src="https://www.gharpeshiksha.com/images/post_new.webp" w="100%" h="100%" />
+                                {/* <Image src="https://www.gharpeshiksha.com/images/post_new.webp" w="100%" h="100%" /> */}
+                                <GiNotebook  style={{width:"100px" ,height:"100px", }} />
                             </Box>
-                            <Text fontFamily="sans-serif" fontSize={{ base: "19px", sm: "19px", md: "21px", lg: "22px" }} textAlign={"center"} mt="20px" color="#2883FF">10,778</Text>
-                            <Text fontFamily="sans-serif" fontSize={{ base: "19px", sm: "19px", md: "21px", lg: "22px" }} textAlign={"center"} color="#2883FF">Requirement Posted</Text>
+                            <Text fontFamily="sans-serif" fontSize={{ base: "19px", sm: "19px", md: "21px", lg: "22px" }} textAlign={"center"} mt="20px" color="#2883FF">****</Text>
+                            <Text fontFamily="sans-serif" fontSize={{ base: "19px", sm: "19px", md: "21px", lg: "22px" }} textAlign={"center"} color="#2883FF">Hurry up registere yourself now</Text>
                         </Box>
                         <Box data-aos="zoom-in-down" borderRight={{ base: 'none', md: 'none', lg: '1px solid gray' }} borderBottom={{ base: '1px solid gray', md: '1px solid gray', lg: "none" }} h="300px" >
                             <Box className='cardTwo' border="1px solid blue" h="120px" w="120px" borderRadius={"5px"} m="auto" mt="30px" padding="10px">
-                                <Image src="https://www.gharpeshiksha.com/images/tutor_new.webp" w="100%" h="100%" />
+                                {/* <Image src="https://www.gharpeshiksha.com/images/tutor_new.webp" w="100%" h="100%" /> */}
+                                <FaUsers style={{width:"100px" ,height:"100px", }}/>
                             </Box>
-                            <Text fontFamily="sans-serif" fontSize={{ base: "19px", sm: "19px", md: "21px", lg: "22px" }} textAlign={"center"} mt="20px" color="#2883FF">92539</Text>
-                            <Text fontFamily="sans-serif" fontSize={{ base: "19px", sm: "19px", md: "21px", lg: "22px" }} textAlign={"center"} color="#2883FF">Registered Tutors</Text>
+                            <Text fontFamily="sans-serif" fontSize={{ base: "19px", sm: "19px", md: "21px", lg: "22px" }} textAlign={"center"} mt="20px" color="#2883FF">****</Text>
+                            <Text fontFamily="sans-serif" fontSize={{ base: "19px", sm: "19px", md: "21px", lg: "22px" }} textAlign={"center"} color="#2883FF">We have best faculty in Delhi NCR</Text>
                         </Box>
                         <Box data-aos="zoom-in-down" border=" " h="300px" >
                             <Box className='cardTwo' border="1px solid blue" h="120px" w="120px" borderRadius={"5px"} m="auto" mt="30px" padding="10px">
-                                <Image src="https://www.gharpeshiksha.com/images/removebg.webp" w="100%" h="100%" />
+                                {/* <Image src="https://www.gharpeshiksha.com/images/removebg.webp" w="100%" h="100%" /> */}
+                                <FaRegThumbsUp style={{width:"100px" ,height:"85px",marginTop:"5px"}}/>
+
                             </Box>
                             <Text fontFamily="sans-serif" fontSize={{ base: "19px", sm: "19px", md: "21px", lg: "22px" }} textAlign={"center"} mt="20px" color="#2883FF">4.8</Text>
                             <Text fontFamily="sans-serif" fontSize={{ base: "19px", sm: "19px", md: "21px", lg: "21px" }} textAlign={"center"} color="#2883FF">Ratings on Social Media</Text>

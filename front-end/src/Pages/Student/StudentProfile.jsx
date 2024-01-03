@@ -27,7 +27,7 @@ const StudentProfile = () => {
         <Box h="100%" w="100%" m="auto" mt="80px" display={"flex"} >
 
             <Box width={isSmall ? "100px" : "16%"} className='left'>
-                <SidebarComponent isSmall={isSmall} setIsSmall={setIsSmall} userType={userType} user_id={user_id} />
+                <SidebarComponent isSmall={isSmall} setIsSmall={setIsSmall}  userType={userType} user_id={user_id} />
             </Box>
             <Box height={'auto'} width={isSmall ? "93.5%" : "84%"}  className='right' overflow="auto"
                 css={{
@@ -35,8 +35,9 @@ const StudentProfile = () => {
                         display: 'none',
                     },
                 }}
+               
             >
-                <Box ml={{ base: "20px", md: "25px", lg: "50px" }} h="auto" >
+                <Box ml={{ base: "20px", md: "25px", lg: "50px" }} h="auto"  >
                     <Box mt="30px" h="50px">
                         <Text fontSize={"30px"} fontFamily={"sans-serif"} fontWeight={"600"}>  My Profile</Text>
 

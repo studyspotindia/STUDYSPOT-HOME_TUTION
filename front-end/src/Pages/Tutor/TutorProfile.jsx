@@ -36,7 +36,7 @@ const TutorProfile = () => {
                     },
                 }}
             >
-                <Box ml={{ base: "20px", md: "25px", lg: "50px" }} h="auto" >
+                <Box ml={{ base: "20px", md: "25px", lg: "50px" }} h="auto"    >
                     <Box mt="30px" h="50px">
                         <Text fontSize={"30px"} fontFamily={"sans-serif"} fontWeight={"600"}>  My Profile</Text>
 
