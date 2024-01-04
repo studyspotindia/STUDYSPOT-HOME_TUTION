@@ -45,20 +45,20 @@ const ContactUs = () => {
               icon={<Icon as={BsInstagram} boxSize={8} />}
               title="Instagram"
               description="Click and Follow Us"
-              link={<a href="" rel="noreferrer" target="_blank"><Text color="teal">Studyspot</Text></a>}
+              link={<a href="https://instagram.com/studyspot_india?igshid=YTQwZjQ0NmI0OA==" rel="noreferrer" target="_blank"><Text color="teal">Studyspot</Text></a>}
             />
             <ContactInfo
               icon={<Icon as={FaLinkedin} boxSize={8} />}
               title="LinkedIn"
               description="Connect With me"
-              link={<a href="" rel="noreferrer" target="_blank"><Text color="teal">Just One Click</Text></a>}
+              link={<a href="https://www.linkedin.com/company/studyspot-india-pvt-ltd/" rel="noreferrer" target="_blank"><Text color="teal">Just One Click</Text></a>}
             />
             <ContactInfo
               icon={<Icon as={GrLocation} boxSize={8} />}
               title="Location"
               description="Delhi, India"
               link={
-                <a href="https://www.google.com/maps/place/STUDYSPOT+%5BHome+Tuition+Services%5D/@28.5864436,77.081902,17z/data=!3m1!4b1!4m6!3m5!1s0x390d1bfecd203135:0x2e6f5526e52acb30!8m2!3d28.5864436!4d77.081902!16s%2Fg%2F11t1mm7fd6?entry=ttu"
+                <a href="https://maps.app.goo.gl/m7RpDxiqnCnMVg1j7"
                    rel="noreferrer" target="_blank"><Text color="teal">View on Google map</Text></a>}
             />
           </Flex>
