@@ -17,6 +17,7 @@ import { ReactNode } from 'react'
 import { FaInstagram, FaTwitter, FaYoutube } from 'react-icons/fa'
 import { BiMailSend } from 'react-icons/bi'
 import studyspot from "../Images/studyspot.jpg"
+import { Link } from 'react-router-dom'
 
 
 const Logo = (props) => {
@@ -70,14 +71,14 @@ const ListHeader = ({ children }) => {
 }
 
 export default function Footer() {
-    
+
   return (
     <Box
-     mt="60px"
-     // border="1px solid red"
+      mt="60px"
+      // border="1px solid red"
       bg={useColorModeValue('gray.50', 'gray.900')}
       color={useColorModeValue('gray.700', 'gray.200')}
-      >
+    >
       <Container as={Stack} maxW={'95%'} py={10}>
         <SimpleGrid
           templateColumns={{ sm: '1fr 1fr', md: '2fr 1fr 1fr 1fr 1fr ' }}
@@ -85,37 +86,56 @@ export default function Footer() {
           //border="1px solid red"
           width="100%"
           padding="40px"
-          >
+        >
           <Stack spacing={6}>
-            <Box h="100px" w="160px" 
+            <Box h="100px" w="160px"
             //border="1px solid red"
             >
-              <Image h="100%" w="100%"  src={studyspot}/>
+              <Image h="100%" w="100%" src={studyspot} />
             </Box>
             <Text fontSize={'sm'}>© 2022 STUDYSPOT-INDIA. All rights reserved</Text>
             <Stack direction={'row'} spacing={6}>
-              <SocialButton label={'Twitter'} href={'#'}>
-                <FaTwitter />
-              </SocialButton>
-              <SocialButton label={'YouTube'} href={'#'}>
-                <FaYoutube />
-              </SocialButton>
-              <SocialButton label={'Instagram'} href={'#'}>
-                <FaInstagram />
-              </SocialButton>
+              <a href={'https://x.com/StudyspotIndia?t=g2LKBP0QFA58rN2q1t8-rA&s=09'} target='blank'>
+                <SocialButton label={'Twitter'} >
+                  <FaTwitter />
+                </SocialButton>
+
+              </a>
+
+              <a href={'#'}>
+                <SocialButton label={'YouTube'} >
+                  <FaYoutube />
+                </SocialButton>
+
+              </a>
+
+              <a href={'https://instagram.com/studyspot_india?igshid=YTQwZjQ0NmI0OA=='}>
+                <SocialButton label={'Instagram'} >
+                  <FaInstagram />
+                </SocialButton>
+              </a>
+
+
+
             </Stack>
           </Stack>
           <Stack align={'flex-start'}>
             <ListHeader>Company</ListHeader>
-            <Box as="a" href={'#'}>
-              About us
-            </Box>
+            <Link to="/about">
+              <Box as="a" >
+                About us
+              </Box>
+            </Link>
+
             <Box as="a" href={'#'}>
               Blog
             </Box>
-            <Box as="a" href={'#'}>
-              Contact us
-            </Box>
+            <Link to="/contactus">
+              <Box as="a" >
+                Contact us
+              </Box>
+            </Link>
+
             <Box as="a" href={'#'}>
               Pricing
             </Box>
@@ -141,7 +161,7 @@ export default function Footer() {
               Testimonials
             </Box>
           </Stack>
-          
+
           <Stack align={'flex-start'}>
             <ListHeader>Support</ListHeader>
             <Box as="a" href={'#'}>
