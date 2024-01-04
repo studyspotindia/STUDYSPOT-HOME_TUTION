@@ -12,7 +12,7 @@ const About = () => {
       <Box  h="auto" >
         <Box w="85%" m="auto">
           <Text mt={{base:"25px",md:"25px",lg:"30px"}} fontFamily={"sans-serif"} textAlign={"center"} fontSize={{base:"16px",md:"28px",lg:"36px"}} fontWeight={"800"}>ABOUT STUDYSOPT</Text>
-          <Text mt={{base:"23px",md:"33px",lg:"30px"}} fontFamily={"sans-serif"} textAlign={"center"} fontSize={{base:"15px",md:"24px",lg:"30px"}} fontWeight={"800"}>QUALIFIED ONLINE TUTORS FROM  OUR INSTITUTIONS</Text>
+          <Text mt={{base:"23px",md:"33px",lg:"30px"}} fontFamily={"sans-serif"} textAlign={"center"} fontSize={{base:"15px",md:"24px",lg:"30px"}} fontWeight={"800"}> YOUR PREFERRED CHOICE FOR HOME TUTION</Text>
         </Box>
 
         <Box mt={{base:"35px",md:"45px",lg:"60px"}} w="100%" height={{ base: "300px", md: "300px", lg: "500px" }}>
@@ -54,9 +54,9 @@ const About = () => {
 
         <Box w="85%" m="auto">
           <Text mt="40px" fontFamily={"sans-serif"} textAlign={"center"} fontSize={{base:"16px",md:"33px",lg:"36px"}} fontWeight={"800"}>WE MEET STUDENT'S LEARNING NEEDS</Text>
-          <p style={{ fontFamily: "sans-serif", fontSize: "18px", color: "#8d8d8d", marginTop: "35px" }}>Our online tuition classes are organized to make learning as convenient and effective as possible. Studyspot is the perfect platform that enables students to reach their goals faster and get real results without leaving their homes. Our tutors provide the exact resources for your curriculum including comprehensive support:</p>
+          <p style={{ fontFamily: "sans-serif", fontSize: "18px", color: "#8d8d8d", marginTop: "35px" }}>Our tuition classes are organized to make learning as convenient and effective as possible. Studyspot is the perfect platform that enables students to reach their goals faster and get real results without leaving their homes. Our tutors provide the exact resources for your curriculum including comprehensive support:</p>
           <Box w="100%" m="auto" padding="10px" mt="25px">
-            <p style={{ fontFamily: "sans-serif", fontSize: "16px", color: "blue", textAlign: "center", marginTop: "0px" }}>CBSE,  ICSE, IGCSE, all State boards for all subject  Like -: Mathematics, Physics, Chemistry, and all Sciences etc.....</p>
+            <p style={{ fontFamily: "sans-serif", fontSize: "16px", color: "blue", textAlign: "center", marginTop: "0px" }}>CBSE,  ICSE, IGCSE, all State boards for all subject  Like -: Math,Science,English,Hindi,Social-Science, Commerce and Arts  etc.....</p>
             {/* <p style={{ fontFamily: "sans-serif", fontSize: "16px", color: "blue", textAlign: "center", marginTop: "20px" }}>International curriculum: IB, SAT, Advanced Placement, Australian curriculum</p>
             <p style={{ fontFamily: "sans-serif", fontSize: "16px", color: "blue", textAlign: "center", marginTop: "20px" }}>Competitive entrance exam support: NEET, JEE (main), JEE (advanced)</p> */}
 
