@@ -1,13 +1,13 @@
 import React, { useEffect } from 'react'
 import "./Subject.modules.css"
-import { Avatar, Box, Button, Image, SimpleGrid, Text } from '@chakra-ui/react'
+import { Avatar, Box, Button, Image, SimpleGrid, Skeleton, Text } from '@chakra-ui/react'
 import studentpost from "../Images/student.webp"
 import bell from "../Images/notify.webp"
 import bio from "../Images/bio.webp"
 import { SubjectData, TeacherData } from '../Data/Dummy'
 import { settings2 } from '../Data/ResponsiveCard'
 import Slider from "react-slick";
-import { FaBalanceScaleRight ,FaUsers,FaRegThumbsUp} from 'react-icons/fa';
+import { FaBalanceScaleRight, FaUsers, FaRegThumbsUp } from 'react-icons/fa';
 import { GiNotebook } from "react-icons/gi";
 import { AiOutlineUsergroupAdd } from "react-icons/ai";
 
@@ -17,13 +17,28 @@ import { AiOutlineUsergroupAdd } from "react-icons/ai";
 import Aos from 'aos';
 import 'aos/dist/aos.css';
 import { Link } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
+import { getallTeachers } from '../Redux/Auth/Auth.action'
 
 const Subject = () => {
+    const dispatch = useDispatch()
+
+
+    const auth = useSelector((state) => state.auth)
+    console.log(auth, "check")
+
 
 
     useEffect(() => {
         Aos.init({ duration: 2000 });
-    }, []);
+        dispatch(getallTeachers())
+        console.log("hi bro ")
+    }, [dispatch]);
+
+    // useEffect(()=>{
+    //      dispatch(getallTeachers())
+    //      console.log("hi bro ")
+    // },[dispatch])
 
 
     return (
@@ -127,7 +142,7 @@ const Subject = () => {
                         <Box data-aos="zoom-in-down" borderRight={{ base: 'none', md: 'none', lg: '1px solid gray' }} borderBottom={{ base: '1px solid gray', md: '1px solid gray', lg: "none" }} h="300px" >
                             <Box className='cardTwo' border="1px solid blue" h="120px" w="120px" borderRadius={"5px"} m="auto" mt="30px" padding="10px">
                                 {/* <Image src="https://www.gharpeshiksha.com/images/post_new.webp" w="100%" h="100%" /> */}
-                                <GiNotebook  style={{width:"100px" ,height:"100px", }} />
+                                <GiNotebook style={{ width: "100px", height: "100px", }} />
                             </Box>
                             <Text fontFamily="sans-serif" fontSize={{ base: "19px", sm: "19px", md: "21px", lg: "22px" }} textAlign={"center"} mt="20px" color="#2883FF">****</Text>
                             <Text fontFamily="sans-serif" fontSize={{ base: "19px", sm: "19px", md: "21px", lg: "22px" }} textAlign={"center"} color="#2883FF">Hurry up registere yourself now</Text>
@@ -135,7 +150,7 @@ const Subject = () => {
                         <Box data-aos="zoom-in-down" borderRight={{ base: 'none', md: 'none', lg: '1px solid gray' }} borderBottom={{ base: '1px solid gray', md: '1px solid gray', lg: "none" }} h="300px" >
                             <Box className='cardTwo' border="1px solid blue" h="120px" w="120px" borderRadius={"5px"} m="auto" mt="30px" padding="10px">
                                 {/* <Image src="https://www.gharpeshiksha.com/images/tutor_new.webp" w="100%" h="100%" /> */}
-                                <FaUsers style={{width:"100px" ,height:"100px", }}/>
+                                <FaUsers style={{ width: "100px", height: "100px", }} />
                             </Box>
                             <Text fontFamily="sans-serif" fontSize={{ base: "19px", sm: "19px", md: "21px", lg: "22px" }} textAlign={"center"} mt="20px" color="#2883FF">****</Text>
                             <Text fontFamily="sans-serif" fontSize={{ base: "19px", sm: "19px", md: "21px", lg: "22px" }} textAlign={"center"} color="#2883FF">We have best faculty in Delhi NCR</Text>
@@ -143,7 +158,7 @@ const Subject = () => {
                         <Box data-aos="zoom-in-down" border=" " h="300px" >
                             <Box className='cardTwo' border="1px solid blue" h="120px" w="120px" borderRadius={"5px"} m="auto" mt="30px" padding="10px">
                                 {/* <Image src="https://www.gharpeshiksha.com/images/removebg.webp" w="100%" h="100%" /> */}
-                                <FaRegThumbsUp style={{width:"100px" ,height:"85px",marginTop:"5px"}}/>
+                                <FaRegThumbsUp style={{ width: "100px", height: "85px", marginTop: "5px" }} />
 
                             </Box>
                             <Text fontFamily="sans-serif" fontSize={{ base: "19px", sm: "19px", md: "21px", lg: "22px" }} textAlign={"center"} mt="20px" color="#2883FF">4.8</Text>
@@ -161,18 +176,32 @@ const Subject = () => {
                     <Text data-aos="zoom-out-right" fontFamily="sans-serif" fontSize={{ base: "27px", sm: "27px", md: "31px", lg: "4xl" }} textAlign="center" fontWeight={"bold"} mt="50px" color="#333333">Few of our Top Tutors</Text>
                     <Box className="Slide2" w="100%" mt="60px" >
                         <Slider {...settings2} >
-                            {TeacherData.map((item) => (
+                            {auth.allTeachers.map((item) => (
                                 <Box className="Slider-card" h="300px" bg="white"  >
                                     {/* <img src={item.image} /> */}
                                     <Box bgColor='#51B2FF' textAlign={"center"} w="100%" zIndex={"99"}>
-                                        <Avatar size={"2xl"} src={item.image} textAlign={"center"} />
+                                        <Avatar size={"2xl"} name={item.name} src={item.profile} textAlign={"center"} />
                                         {/* <Image src={item.image} h="100%" w="100%" /> */}
                                     </Box>
                                     <Box mt='-50px' bg='white' border={"1px solid white"} h="167px" w="100%" boxShadow="rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px">
                                         <Box h="100px" w="80%" m="auto" mt="52px">
-                                            <Text _hover={{ color: 'purple' }} fontSize={"22px"} fontFamily={"sans-serif"} fontWeight={500}>{item.title}</Text>
-                                            <Text _hover={{ color: 'purple' }} fontSize={"22px"} fontFamily={"sans-serif"} fontWeight={500}>{item.Edu}</Text>
-                                            <Text _hover={{ color: 'purple' }} fontSize={"22px"} fontFamily={"sans-serif"} fontWeight={500}>{item.year}</Text>
+                                            {auth.isLoading === true ? <Skeleton height='50px' mt={{ base: "5px", md: "10px", lg: "20px" }} />
+                                                : <Text _hover={{ color: 'purple' }} fontSize={"22px"} fontFamily={"sans-serif"} fontWeight={500}>{item.name}</Text>
+                                            }
+
+                                            {auth.isLoading === true ? <Skeleton height='50px' mt={{ base: "5px", md: "10px", lg: "20px" }} />
+                                                : <Text _hover={{ color: 'purple' }} fontSize={"22px"} fontFamily={"sans-serif"} fontWeight={500}>{item.highereducation}</Text>
+
+                                            }
+                                            {auth.isLoading === true ? <Skeleton height='50px' mt={{ base: "5px", md: "10px", lg: "20px" }} />
+                                                : <Text _hover={{ color: 'purple' }} fontSize={"22px"} fontFamily={"sans-serif"} fontWeight={500}>{item.experience}</Text>
+
+
+                                            }
+
+
+
+
 
 
                                         </Box>

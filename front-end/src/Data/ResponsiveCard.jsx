@@ -9,10 +9,20 @@ export let settings2 = {
   pauseOnHover: true,
   responsive: [
     {
-      breakpoint: 1024,
+      breakpoint: 1440,
       settings: {
         focusOnSelect: true,
         slidesToShow: 4,
+        slidesToScroll: 1,
+        infinite: true,
+        // dots: true
+      },
+    },
+    {
+      breakpoint: 1024,
+      settings: {
+        focusOnSelect: true,
+        slidesToShow: 3,
         slidesToScroll: 1,
         infinite: true,
         // dots: true

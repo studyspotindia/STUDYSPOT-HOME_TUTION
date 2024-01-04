@@ -8,6 +8,7 @@ const isAuthBollen = !!tokenCookie;
 
 const initialState = {
   student: [],
+  allTeachers:[],
   token: tokenCookie || false,
   isAuth: false,
   isLoading: false,
@@ -157,6 +158,34 @@ export const authReducer = (state = initialState, action) => {
           ...state,
           message: null,
         };
+
+
+        // all teachers data
+
+        case types.GET_ALL_TEACHERS_REQUEST:
+          return { ...state, isLoading: true, isError: false };
+    
+
+    case types.GET_ALL_TEACHERS_SUCCESS:
+
+      return {
+
+        ...state,
+        isAuth: true,
+        allTeachers: payload,
+        isLoading: false,
+        isError: false
+
+      }
+
+      case types.GET_ALL_TEACHERS_ERROR:
+        return {
+          ...state,
+         
+          message: payload.message,
+          isLoading: false,
+          isError: true,
+        }
         
 
     case types.GET_SINGLE_STUDENT_REQUEST:

@@ -141,6 +141,30 @@ export const checkTokenPresence = () => (dispatch) => {
 
 
 
+export const getallTeachers = () => async (dispatch) => {
+
+    dispatch({ type: types.GET_ALL_TEACHERS_REQUEST });
+
+
+    try {
+       // console.log(userType, user_id,"chek in action")
+      // Make a GET request to your backend to fetch the student data using the user ID
+      const response = await axios.get(`https://filthy-rose-shoe.cyclic.cloud/tutor`);
+  
+      const teachersData = response.data; // Assuming the API returns student data
+      //console.log(teachersData)
+
+      dispatch({ type: types.GET_ALL_TEACHERS_SUCCESS, payload: teachersData });
+
+    } catch (error) {
+      // Handle any errors here
+      const errorMessage = error.response.data.message;
+        dispatch({ type: types.GET_ALL_TEACHERS_ERROR, payload: { message: errorMessage } });
+    }
+  };
+
+
+
 export const getSingleStudent = (userType, user_id) => async (dispatch) => {
 
     dispatch({ type: types.GET_SINGLE_STUDENT_REQUEST });
