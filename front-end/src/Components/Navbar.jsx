@@ -56,7 +56,7 @@ export default function Navbar() {
   const { isOpen, onToggle } = useDisclosure();
   const dispatch = useDispatch();
   const location = useLocation();
-  
+
 
 
 
@@ -70,15 +70,15 @@ export default function Navbar() {
 
   useEffect(() => {
 
- dispatch(checkTokenPresence());
-   
+    dispatch(checkTokenPresence());
+
     if (location.pathname === '/teacherlogin') {
       setUserType('tutor');
     }
     const user_id = Cookies.get('userId');
 
-    if(user_id){
-      dispatch(getSingleStudent(userType,user_id))
+    if (user_id) {
+      dispatch(getSingleStudent(userType, user_id))
       //console.log("kusum")
     }
 
@@ -89,7 +89,7 @@ export default function Navbar() {
     //     const user_id = Cookies.get('userId');
     //     //let userType = 'student'; // Default to student
 
-       
+
 
     //     // Wait for a short period (e.g., 500 milliseconds) before making the fetch request
     //     if (user_id) {
@@ -108,7 +108,7 @@ export default function Navbar() {
     // window.location.reload(true);
 
 
-  }, [dispatch, user_id, location.pathname,userType]);
+  }, [dispatch, user_id, location.pathname, userType]);
 
 
 
@@ -191,9 +191,21 @@ export default function Navbar() {
           direction={'row'}
           spacing={6}>
 
-          {/* <Button onClick={toggleColorMode}>
-            {colorMode === 'light' ? <MoonIcon /> : <SunIcon />}
-          </Button> */}
+          
+
+            <Button 
+             colorScheme='telegram'
+             as={'a'}
+             fontSize={{ base: 'md', sm: "md", md: 'sm',lg:"md" }}
+             fontWeight={{ base: '500', sm: "300", md: '300', lg: "600" }}
+             mt="10px"
+             display={{ base: 'none', sm: 'none', md: 'inherit', lg: 'inherit' }} 
+             textAlign={'center'}          
+              >
+            <a  href="https://www.onlinesbi.sbi/sbicollect/icollecthome.htm?saralID=-913876889" target="_blank" rel="noopener noreferrer" >Payment</a>
+            </Button>
+          
+
 
           {auth.isAuthenticated === false || auth.isAuthenticated === undefined ? (
             <Link to="/studentlogin">
@@ -235,7 +247,7 @@ export default function Navbar() {
 
           }
 
-         
+
           {auth.isAuthenticated === false || auth.isAuthenticated === undefined ? (
             <Link to="/studentsignup">
               <Button
@@ -338,7 +350,7 @@ const DesktopNav = () => {
   const textColorStyle = useStyleConfig('Text', { styleConfig: textColorStyles });
 
   return (
-    <Stack direction={'row'} spacing={{base:4,md:0,lg:9}}>
+    <Stack direction={'row'} spacing={{ base: 4, md: 0, lg: 9 }}>
       {NAV_ITEMS.map((navItem) => (
         <Box key={navItem.label}>
           {navItem.children ? (
@@ -348,9 +360,9 @@ const DesktopNav = () => {
                   p={2}
                   to={navItem.to || '#'} // You can provide a fallback link here if `to` is not specifie
                   sx={textColorStyle}
-                 >
+                >
                   <Button
-                  colorScheme='whiteAlpha'
+                    colorScheme='whiteAlpha'
                   >
                     <Text
                       fontSize={{ base: "19px", sm: "15px", md: "15px", lg: "19px" }}
@@ -385,10 +397,10 @@ const DesktopNav = () => {
                 </Stack>
               </PopoverContent>
             </Popover>
-          ) :(
+          ) : (
             <Link
               p={2}
-              to={navItem.to } // You can provide a fallback link here if `to` is not specified
+              to={navItem.to} // You can provide a fallback link here if `to` is not specified
               fontSize={'sm'}
               fontWeight={500}
               _hover={{
@@ -399,7 +411,7 @@ const DesktopNav = () => {
               activeClass="active"
               smooth={true} // Add smooth scrolling effect
               offset={-50} // Optional offset for precise scrolling position
-              //duration={500} // Scroll duration in milliseconds
+            //duration={500} // Scroll duration in milliseconds
             >
               <Button
                 colorScheme='whiteAlpha'
@@ -476,15 +488,18 @@ const MobileNav = () => {
   );
 };
 
-const MobileNavItem = ({ label, children, to }) => {
+const MobileNavItem = ({ label, children, to, href, external }) => {
   const { isOpen, onToggle } = useDisclosure();
 
   return (
     <Stack spacing={4} onClick={children && onToggle}>
       <Flex
         py={2}
-        as={Link}
+        as={href ? 'a' : Link}
+        href={href && href}
         to={to || '#'} // You can provide a fallback link here if `to` is not specified
+        target={external ? '_blank' : undefined}
+        rel={external ? 'noopener noreferrer' : undefined}
         justify={'space-between'}
         align={'center'}
         _hover={{
@@ -571,7 +586,7 @@ const NAV_ITEMS = [
 ];
 
 
-const Mob_NAV_ITEMS =  [
+const Mob_NAV_ITEMS = [
   {
     label: 'Search Tutor',
     children: [
@@ -614,5 +629,10 @@ const Mob_NAV_ITEMS =  [
     label: 'Sign Up',
     to: '/studentsignup', // Replace with the appropriate route path
   },
+  {
+    label: 'Payment',
+    href: 'https://www.onlinesbi.sbi/sbicollect/icollecthome.htm?saralID=-913876889',
+    external: true, // indicate that it's an external link
+  }
 ];
-  
+
