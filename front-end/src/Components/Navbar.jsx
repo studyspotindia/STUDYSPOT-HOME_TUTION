@@ -180,7 +180,7 @@ export default function Navbar() {
           </Link>
 
 
-          <Flex display={{ base: 'none', md: 'flex' }} justifyContent={"center"} alignItems={"center"} ml={{ base: 10, md: 5, lg: 10 }}>
+          <Flex display={{ base: 'none', md: 'flex' }} justifyContent={"center"} alignItems={"center"} ml={{ base: 10, md: 0, lg: 10 }}>
             <DesktopNav />
           </Flex>
         </Flex>
@@ -189,7 +189,7 @@ export default function Navbar() {
           flex={{ base: 1, md: 0 }}
           justify={'flex-end'}
           direction={'row'}
-          spacing={6}>
+          spacing={{base:"",sm:"",md:"2",lg:"6"}}>
 
           
 
@@ -197,10 +197,11 @@ export default function Navbar() {
              colorScheme='telegram'
              as={'a'}
              fontSize={{ base: 'md', sm: "md", md: 'sm',lg:"md" }}
-             fontWeight={{ base: '500', sm: "300", md: '300', lg: "600" }}
-             mt="10px"
+             fontWeight={{ base: '500', sm: "300", md: '100', lg: "600" }}
+             mt={auth.isAuthenticated === false || auth.isAuthenticated === undefined ? '' : '15px'}
              display={{ base: 'none', sm: 'none', md: 'inherit', lg: 'inherit' }} 
-             textAlign={'center'}          
+             textAlign={'center'}   
+             size={{base:"md",sm:"md",md:"sm",lg:"md"}}       
               >
             <a  href="https://www.onlinesbi.sbi/sbicollect/icollecthome.htm?saralID=-913876889" target="_blank" rel="noopener noreferrer" >Payment</a>
             </Button>
@@ -211,12 +212,11 @@ export default function Navbar() {
             <Link to="/studentlogin">
               <Button
                 as={'a'}
-                fontSize={{ base: 'md', sm: "md", md: 'md' }}
+                fontSize={{ base: 'md', sm: "md", md: 'sm' }}
                 fontWeight={{ base: '500', sm: "300", md: '400', lg: "600" }}
                 //variant={'link'}
-
-
-                _hover={{
+                size={{base:"md",sm:"md",md:"sm",lg:"md"}}
+                 _hover={{
                   bg: 'green.300',
                 }}
                 color="white"
@@ -229,16 +229,17 @@ export default function Navbar() {
           ) : (
             <Button
               onClick={handleLogout}
-              fontSize={{ base: 'md', sm: "md", md: 'md' }}
+              fontSize={{ base: 'md', sm: "md", md: 'sm' }}
               fontWeight={{ base: '500', sm: "300", md: '400', lg: "600" }}
               display={{ base: 'none', sm: "inline-flex", md: 'inline-flex' }}
+              size={{base:"md",sm:"md",md:"sm",lg:"md"}}
               //variant={'link'}
               _hover={{
                 bg: 'green.300',
               }}
               color="white"
               bg={'#25D366'}
-              mt="10px"
+              mt="15px"
             >
               Logout
             </Button>
@@ -253,7 +254,8 @@ export default function Navbar() {
               <Button
                 as={'a'}
                 display={{ base: 'none', sm: "inline-flex", md: 'inline-flex' }}
-                fontSize={{ base: 'md', sm: "sm", md: 'md' }}
+                fontSize={{ base: 'md', sm: "md", md: 'sm' }}
+                size={{base:"md",sm:"md",md:"sm",lg:"md"}}
                 fontWeight={{ sm: "300", md: '400', lg: "600" }}
                 color={'white'}
                 bg={'#00B2FF'}
