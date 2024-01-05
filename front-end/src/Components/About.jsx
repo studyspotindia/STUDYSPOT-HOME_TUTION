@@ -12,7 +12,7 @@ const About = () => {
       <Box  h="auto" >
         <Box w="85%" m="auto">
           <Text mt={{base:"25px",md:"25px",lg:"30px"}} fontFamily={"sans-serif"} textAlign={"center"} fontSize={{base:"16px",md:"28px",lg:"36px"}} fontWeight={"800"}>ABOUT STUDYSOPT</Text>
-          <Text mt={{base:"23px",md:"33px",lg:"30px"}} fontFamily={"sans-serif"} textAlign={"center"} fontSize={{base:"15px",md:"24px",lg:"30px"}} fontWeight={"800"}> YOUR PREFERRED CHOICE FOR HOME TUTION</Text>
+          <Text mt={{base:"23px",md:"33px",lg:"30px"}} fontFamily={"sans-serif"} textAlign={"center"} fontSize={{base:"15px",md:"24px",lg:"30px"}} fontWeight={"800"}> YOUR PREFERRED CHOICE FOR HOME TUITION</Text>
         </Box>
 
         <Box mt={{base:"35px",md:"45px",lg:"60px"}} w="100%" height={{ base: "300px", md: "300px", lg: "500px" }}>
@@ -25,7 +25,7 @@ const About = () => {
 
         <Box w="85%" m="auto"  h="auto" mt="30px">
         <Text  fontFamily={"sans-serif"}  fontSize={{base:"16px",md:"18px",lg:"18px"}} fontWeight={"600"}>About Us</Text>
-        <p style={{ fontFamily: "sans-serif", fontSize: "17.5px", color: "#8d8d8d" ,marginTop:"5px" }}>TUDYSPOT is more than just a tutoring service; it's a recognized edutech startup dedicated to providing unparalleled educational experiences. Our government recognition reflects our commitment to quality and innovation in the education sector.</p>
+        <p style={{ fontFamily: "sans-serif", fontSize: "17.5px", color: "#8d8d8d" ,marginTop:"5px" }}>STUDYSPOT is more than just a tutoring service; it's a recognized edutech startup dedicated to providing unparalleled educational experiences. Our government recognition reflects our commitment to quality and innovation in the education sector.</p>
         <Text  fontFamily={"sans-serif"}  fontSize={{base:"16px",md:"18px",lg:"18px"}} fontWeight={"600"} mt="25px">Our Offerings</Text>
         <p style={{ fontFamily: "sans-serif", fontSize: "17.5px", color: "#8d8d8d" ,marginTop:"5px" }}>Experience personalized home tuition services, tailored to meet the unique needs of students from Grade 1st to Graduate level.</p>
         <p style={{ fontFamily: "sans-serif", fontSize: "17.5px", color: "#8d8d8d" , }}> Our team consists of the best-skilled, qualified, and experienced tutors who are passionate about nurturing the potential of every student.</p>
